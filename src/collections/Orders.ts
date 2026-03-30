@@ -1,4 +1,11 @@
 import type { CollectionConfig } from 'payload'
+import type { Product } from '../payload-types'
+
+type OrderItem = {
+  product: string | number
+  quantity: number
+  price: number
+}
 
 export const Orders: CollectionConfig = {
   slug: 'orders',
@@ -7,18 +14,18 @@ export const Orders: CollectionConfig = {
       async ({ data, req }) => {
         if (data.items?.length) {
           const items = await Promise.all(
-            data.items.map(async (item) => {
-              const book = await req.payload.findByID({
+            data.items.map(async (item: { product: string; quantity: number; price: number }) => {
+              const book = (await req.payload.findByID({
                 collection: 'products',
                 id: item.product,
-              })
+              })) as Product
+
               return {
                 ...item,
                 price: book.price,
               }
             }),
           )
-
           data.items = items
           data.total = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
         }
