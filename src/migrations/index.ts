@@ -4,6 +4,7 @@ import * as migration_20260327_103004_add_categories from './20260327_103004_add
 import * as migration_20260330_064412_add_parent_to_categories from './20260330_064412_add_parent_to_categories';
 import * as migration_20260330_071806_create_authors_table from './20260330_071806_create_authors_table';
 import * as migration_20260330_072234_add_publishers_table from './20260330_072234_add_publishers_table';
+import * as migration_20260330_073510_add_products_table from './20260330_073510_add_products_table';
 
 export const migrations = [
   {
@@ -34,6 +35,11 @@ export const migrations = [
   {
     up: migration_20260330_072234_add_publishers_table.up,
     down: migration_20260330_072234_add_publishers_table.down,
-    name: '20260330_072234_add_publishers_table'
+    name: '20260330_072234_add_publishers_table',
+  },
+  {
+    up: migration_20260330_073510_add_products_table.up,
+    down: migration_20260330_073510_add_products_table.down,
+    name: '20260330_073510_add_products_table'
   },
 ];

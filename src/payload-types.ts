@@ -72,6 +72,7 @@ export interface Config {
     categories: Category;
     authors: Author;
     publishers: Publisher;
+    products: Product;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     authors: AuthorsSelect<false> | AuthorsSelect<true>;
     publishers: PublishersSelect<false> | PublishersSelect<true>;
+    products: ProductsSelect<false> | ProductsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -204,6 +206,26 @@ export interface Publisher {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: number;
+  name: string;
+  summary: string;
+  description: string;
+  mainPhoto?: (number | null) | Media;
+  photos?: (number | Media)[] | null;
+  category?: (number | null) | Category;
+  authors?: (number | Author)[] | null;
+  publishers?: (number | Publisher)[] | null;
+  price: number;
+  salePrice?: number | null;
+  isPublished?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -245,6 +267,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'publishers';
         value: number | Publisher;
+      } | null)
+    | ({
+        relationTo: 'products';
+        value: number | Product;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -357,6 +383,25 @@ export interface AuthorsSelect<T extends boolean = true> {
 export interface PublishersSelect<T extends boolean = true> {
   name?: T;
   logo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products_select".
+ */
+export interface ProductsSelect<T extends boolean = true> {
+  name?: T;
+  summary?: T;
+  description?: T;
+  mainPhoto?: T;
+  photos?: T;
+  category?: T;
+  authors?: T;
+  publishers?: T;
+  price?: T;
+  salePrice?: T;
+  isPublished?: T;
   updatedAt?: T;
   createdAt?: T;
 }
