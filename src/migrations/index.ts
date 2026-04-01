@@ -11,6 +11,7 @@ import * as migration_20260401_030847_add_store_global from './20260401_030847_a
 import * as migration_20260401_062542_add_publisheYear_column from './20260401_062542_add_publisheYear_column';
 import * as migration_20260401_064603_add_about_page from './20260401_064603_add_about_page';
 import * as migration_20260401_064844_add_delivery from './20260401_064844_add_delivery';
+import * as migration_20260401_065148_add_return from './20260401_065148_add_return';
 
 export const migrations = [
   {
@@ -76,6 +77,11 @@ export const migrations = [
   {
     up: migration_20260401_064844_add_delivery.up,
     down: migration_20260401_064844_add_delivery.down,
-    name: '20260401_064844_add_delivery'
+    name: '20260401_064844_add_delivery',
+  },
+  {
+    up: migration_20260401_065148_add_return.up,
+    down: migration_20260401_065148_add_return.down,
+    name: '20260401_065148_add_return'
   },
 ];
