@@ -46,6 +46,15 @@ export const Categories: CollectionConfig = {
           relationTo: 'categories',
           hasMany: false,
         },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          hasMany: false,
+          admin: {
+            position: 'sidebar',
+          },
+        },
       ],
     },
   ],
