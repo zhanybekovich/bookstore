@@ -12,6 +12,7 @@ import { Publishers } from './collections/Publishers'
 import { Products } from './collections/Products'
 import { FeaturedProductList } from './globals/FeaturedProductList'
 import { Orders } from './collections/Orders'
+import { Store } from './globals/Store'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,7 +25,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Categories, Authors, Publishers, Products, Orders],
-  globals: [FeaturedProductList],
+  globals: [FeaturedProductList, Store],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

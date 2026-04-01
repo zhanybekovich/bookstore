@@ -99,9 +99,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'featured-product-list': FeaturedProductList;
+    store: Store;
   };
   globalsSelect: {
     'featured-product-list': FeaturedProductListSelect<false> | FeaturedProductListSelect<true>;
+    store: StoreSelect<false> | StoreSelect<true>;
   };
   locale: null;
   widgets: {
@@ -517,6 +519,27 @@ export interface FeaturedProductList {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "store".
+ */
+export interface Store {
+  id: number;
+  name: string;
+  description: string;
+  address: string;
+  phone: string;
+  email: string;
+  socials?: {
+    facebook?: string | null;
+    instagram?: string | null;
+    telegram?: string | null;
+    whatsapp?: string | null;
+  };
+  logo?: (number | null) | Media;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "featured-product-list_select".
  */
 export interface FeaturedProductListSelect<T extends boolean = true> {
@@ -526,6 +549,29 @@ export interface FeaturedProductListSelect<T extends boolean = true> {
         product?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "store_select".
+ */
+export interface StoreSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  address?: T;
+  phone?: T;
+  email?: T;
+  socials?:
+    | T
+    | {
+        facebook?: T;
+        instagram?: T;
+        telegram?: T;
+        whatsapp?: T;
+      };
+  logo?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
