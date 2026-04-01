@@ -34,7 +34,6 @@ export const Categories: CollectionConfig = {
                   return slugify(data.name, {
                     lower: true,
                     strict: true, // убирает спецсимволы
-                    locale: 'ru',
                   })
                 }
               },

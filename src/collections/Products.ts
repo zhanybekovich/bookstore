@@ -85,6 +85,14 @@ export const Products: CollectionConfig = {
       },
     },
     {
+      name: 'inStock',
+      type: 'checkbox',
+      defaultValue: true,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'isPublished',
       type: 'checkbox',
       defaultValue: false,
