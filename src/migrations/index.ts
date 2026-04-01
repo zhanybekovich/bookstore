@@ -8,6 +8,7 @@ import * as migration_20260330_073510_add_products_table from './20260330_073510
 import * as migration_20260330_082244_add_orders_table from './20260330_082244_add_orders_table';
 import * as migration_20260401_025427_add_instock_column_to_orders_table from './20260401_025427_add_instock_column_to_orders_table';
 import * as migration_20260401_030847_add_store_global from './20260401_030847_add_store_global';
+import * as migration_20260401_062542_add_publisheYear_column from './20260401_062542_add_publisheYear_column';
 
 export const migrations = [
   {
@@ -58,6 +59,11 @@ export const migrations = [
   {
     up: migration_20260401_030847_add_store_global.up,
     down: migration_20260401_030847_add_store_global.down,
-    name: '20260401_030847_add_store_global'
+    name: '20260401_030847_add_store_global',
+  },
+  {
+    up: migration_20260401_062542_add_publisheYear_column.up,
+    down: migration_20260401_062542_add_publisheYear_column.down,
+    name: '20260401_062542_add_publisheYear_column'
   },
 ];

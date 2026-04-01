@@ -225,6 +225,7 @@ export interface Product {
   photos?: (number | Media)[] | null;
   category?: (number | null) | Category;
   authors?: (number | Author)[] | null;
+  publishedYear?: number | null;
   publishers?: (number | Publisher)[] | null;
   price: number;
   salePrice?: number | null;
@@ -432,6 +433,7 @@ export interface ProductsSelect<T extends boolean = true> {
   photos?: T;
   category?: T;
   authors?: T;
+  publishedYear?: T;
   publishers?: T;
   price?: T;
   salePrice?: T;

@@ -61,6 +61,13 @@ export const Products: CollectionConfig = {
       },
     },
     {
+      name: 'publishedYear',
+      type: 'number',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'publishers',
       type: 'relationship',
       relationTo: 'publishers',
