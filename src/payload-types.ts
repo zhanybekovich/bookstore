@@ -101,11 +101,13 @@ export interface Config {
     'featured-product-list': FeaturedProductList;
     store: Store;
     about: About;
+    delivery: Delivery;
   };
   globalsSelect: {
     'featured-product-list': FeaturedProductListSelect<false> | FeaturedProductListSelect<true>;
     store: StoreSelect<false> | StoreSelect<true>;
     about: AboutSelect<false> | AboutSelect<true>;
+    delivery: DeliverySelect<false> | DeliverySelect<true>;
   };
   locale: null;
   widgets: {
@@ -571,6 +573,32 @@ export interface About {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "delivery".
+ */
+export interface Delivery {
+  id: number;
+  title: string;
+  seoDescription: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "featured-product-list_select".
  */
 export interface FeaturedProductListSelect<T extends boolean = true> {
@@ -616,6 +644,18 @@ export interface AboutSelect<T extends boolean = true> {
   seoDescription?: T;
   content?: T;
   image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "delivery_select".
+ */
+export interface DeliverySelect<T extends boolean = true> {
+  title?: T;
+  seoDescription?: T;
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
