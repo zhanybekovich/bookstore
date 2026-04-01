@@ -9,6 +9,7 @@ import * as migration_20260330_082244_add_orders_table from './20260330_082244_a
 import * as migration_20260401_025427_add_instock_column_to_orders_table from './20260401_025427_add_instock_column_to_orders_table';
 import * as migration_20260401_030847_add_store_global from './20260401_030847_add_store_global';
 import * as migration_20260401_062542_add_publisheYear_column from './20260401_062542_add_publisheYear_column';
+import * as migration_20260401_064603_add_about_page from './20260401_064603_add_about_page';
 
 export const migrations = [
   {
@@ -64,6 +65,11 @@ export const migrations = [
   {
     up: migration_20260401_062542_add_publisheYear_column.up,
     down: migration_20260401_062542_add_publisheYear_column.down,
-    name: '20260401_062542_add_publisheYear_column'
+    name: '20260401_062542_add_publisheYear_column',
+  },
+  {
+    up: migration_20260401_064603_add_about_page.up,
+    down: migration_20260401_064603_add_about_page.down,
+    name: '20260401_064603_add_about_page'
   },
 ];
