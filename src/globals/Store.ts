@@ -5,6 +5,7 @@ export const Store: GlobalConfig = {
   access: {
     read: () => true,
   },
+  label: 'Store Information',
   fields: [
     {
       name: 'name',
@@ -62,7 +63,18 @@ export const Store: GlobalConfig = {
       name: 'logo',
       type: 'upload',
       relationTo: 'media',
+      required: true,
       hasMany: false,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'heroImage',
+      type: 'upload',
+      relationTo: 'media',
+      hasMany: false,
+      required: true,
       admin: {
         position: 'sidebar',
       },

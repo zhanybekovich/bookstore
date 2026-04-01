@@ -542,7 +542,8 @@ export interface Store {
     telegram?: string | null;
     whatsapp?: string | null;
   };
-  logo?: (number | null) | Media;
+  logo: number | Media;
+  heroImage: number | Media;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -659,6 +660,7 @@ export interface StoreSelect<T extends boolean = true> {
         whatsapp?: T;
       };
   logo?: T;
+  heroImage?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
