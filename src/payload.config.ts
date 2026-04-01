@@ -17,6 +17,7 @@ import { About } from './globals/About'
 import { Delivery } from './globals/Delivery'
 import { Return } from './globals/Return'
 import { TermsOfUse } from './globals/TermsOfUse'
+import { PrivacyPolicy } from './globals/PrivacyPolicy'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -29,7 +30,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Categories, Authors, Publishers, Products, Orders],
-  globals: [FeaturedProductList, Store, About, Delivery, Return, TermsOfUse],
+  globals: [FeaturedProductList, Store, About, Delivery, Return, TermsOfUse, PrivacyPolicy],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

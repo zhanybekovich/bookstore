@@ -104,6 +104,7 @@ export interface Config {
     delivery: Delivery;
     return: Return;
     'terms-of-use': TermsOfUse;
+    'privacy-policy': PrivacyPolicy;
   };
   globalsSelect: {
     'featured-product-list': FeaturedProductListSelect<false> | FeaturedProductListSelect<true>;
@@ -112,6 +113,7 @@ export interface Config {
     delivery: DeliverySelect<false> | DeliverySelect<true>;
     return: ReturnSelect<false> | ReturnSelect<true>;
     'terms-of-use': TermsOfUseSelect<false> | TermsOfUseSelect<true>;
+    'privacy-policy': PrivacyPolicySelect<false> | PrivacyPolicySelect<true>;
   };
   locale: null;
   widgets: {
@@ -656,6 +658,32 @@ export interface TermsOfUse {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "privacy-policy".
+ */
+export interface PrivacyPolicy {
+  id: number;
+  title: string;
+  seoDescription: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "featured-product-list_select".
  */
 export interface FeaturedProductListSelect<T extends boolean = true> {
@@ -735,6 +763,18 @@ export interface ReturnSelect<T extends boolean = true> {
  * via the `definition` "terms-of-use_select".
  */
 export interface TermsOfUseSelect<T extends boolean = true> {
+  title?: T;
+  seoDescription?: T;
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "privacy-policy_select".
+ */
+export interface PrivacyPolicySelect<T extends boolean = true> {
   title?: T;
   seoDescription?: T;
   content?: T;
