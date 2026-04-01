@@ -5,6 +5,7 @@ export const About: GlobalConfig = {
   access: {
     read: () => true,
   },
+  label: 'About Us Page',
   fields: [
     {
       name: 'title',

@@ -5,6 +5,7 @@ export const Delivery: GlobalConfig = {
   access: {
     read: () => true,
   },
+  label: 'Delivery Policy',
   fields: [
     {
       name: 'title',
