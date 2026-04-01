@@ -103,6 +103,7 @@ export interface Config {
     about: About;
     delivery: Delivery;
     return: Return;
+    'terms-of-use': TermsOfUse;
   };
   globalsSelect: {
     'featured-product-list': FeaturedProductListSelect<false> | FeaturedProductListSelect<true>;
@@ -110,6 +111,7 @@ export interface Config {
     about: AboutSelect<false> | AboutSelect<true>;
     delivery: DeliverySelect<false> | DeliverySelect<true>;
     return: ReturnSelect<false> | ReturnSelect<true>;
+    'terms-of-use': TermsOfUseSelect<false> | TermsOfUseSelect<true>;
   };
   locale: null;
   widgets: {
@@ -628,6 +630,32 @@ export interface Return {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "terms-of-use".
+ */
+export interface TermsOfUse {
+  id: number;
+  title: string;
+  seoDescription: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "featured-product-list_select".
  */
 export interface FeaturedProductListSelect<T extends boolean = true> {
@@ -695,6 +723,18 @@ export interface DeliverySelect<T extends boolean = true> {
  * via the `definition` "return_select".
  */
 export interface ReturnSelect<T extends boolean = true> {
+  title?: T;
+  seoDescription?: T;
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "terms-of-use_select".
+ */
+export interface TermsOfUseSelect<T extends boolean = true> {
   title?: T;
   seoDescription?: T;
   content?: T;
