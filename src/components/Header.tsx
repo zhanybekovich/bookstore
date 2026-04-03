@@ -19,8 +19,8 @@ import { Badge } from '@/components/ui/badge'
 const useCartCount = () => 2
 
 const NAV_LINKS = [
-  { href: '/catalog', label: 'Каталог' },
-  { href: '/catalog?sort=new', label: 'Новинки' },
+  { href: '/catalog', label: 'Catalog' },
+  { href: '/catalog?sort=new', label: 'New Arrivals' },
 ]
 
 export default function Header() {
@@ -61,7 +61,7 @@ export default function Header() {
           <Input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Поиск книг..."
+            placeholder="Search books..."
             className="pl-9 h-9"
           />
         </form>
@@ -89,14 +89,14 @@ export default function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
               <DropdownMenuItem asChild>
-                <Link href="/profile">Мой профиль</Link>
+                <Link href="/profile">Profile</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/orders">Мои заказы</Link>
+                <Link href="/orders">My Orders</Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link href="/auth/login">Войти</Link>
+                <Link href="/auth/login">Login</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -134,7 +134,7 @@ export default function Header() {
                   >
                     <Link href="/profile">
                       <User className="h-4 w-4 mr-2" />
-                      Профиль
+                      Profile
                     </Link>
                   </Button>
                   <Button
@@ -143,7 +143,7 @@ export default function Header() {
                     asChild
                     onClick={() => setMobileOpen(false)}
                   >
-                    <Link href="/orders">Мои заказы</Link>
+                    <Link href="/orders">My Orders</Link>
                   </Button>
                   <Button
                     variant="ghost"
@@ -151,7 +151,7 @@ export default function Header() {
                     asChild
                     onClick={() => setMobileOpen(false)}
                   >
-                    <Link href="/auth/login">Войти</Link>
+                    <Link href="/auth/login">Login</Link>
                   </Button>
                 </div>
               </div>
