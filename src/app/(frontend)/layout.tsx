@@ -1,6 +1,7 @@
 import React from 'react'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { Header } from '@/components/Header'
 
 export const inter = Inter({
   subsets: ['latin', 'cyrillic'],
@@ -18,7 +19,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <main>{children}</main>
+        <main>
+          <Header />
+          {children}
+        </main>
       </body>
     </html>
   )
