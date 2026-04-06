@@ -1,7 +1,8 @@
 import React from 'react'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Header from '@/components/Header'
+import Header from '@/components/header/Header'
+import { getStoreInfo } from '@/lib/apiServices'
 
 export const inter = Inter({
   subsets: ['latin', 'cyrillic'],
@@ -16,13 +17,13 @@ export const metadata = {
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
+  const store = await getStoreInfo()
+
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <main>
-          <Header />
-          {children}
-        </main>
+        <Header storeName={store.name} logoUrl={store.logo.url} />
+        <main>{children}</main>
       </body>
     </html>
   )
