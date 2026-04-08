@@ -8,7 +8,7 @@ import { IoIosClose } from 'react-icons/io'
 import { useState } from 'react'
 import { MdOutlineSearch } from 'react-icons/md'
 
-function Header({ storeName, logoUrl }: { storeName: string; logoUrl: string | null | undefined }) {
+function Header({ storeName, logoUrl }) {
   const [user, setUser] = useState(true)
   const [userBlockOpen, setUserBlockOpen] = useState(false)
 

@@ -1,13 +1,6 @@
 import Image from 'next/image'
 
-type Props = {
-  src: string | null | undefined
-  alt: string
-  width: number
-  height: number
-  classes: string | ''
-}
-function Logo({ src, alt, width, height, classes }: Props) {
+function Logo({ src, alt, width, height, classes }) {
   return <Image src={src} alt={alt} width={width} height={height} className={classes} priority />
 }
 
