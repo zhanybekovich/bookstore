@@ -30,7 +30,7 @@ function Header({ storeName, logoUrl, user }: Props) {
       credentials: 'include',
     })
 
-    router.refresh()
+    window.location.href = '/'
   }
 
   const handleUserBlockClick = () => {
