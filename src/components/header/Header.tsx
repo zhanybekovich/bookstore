@@ -33,6 +33,7 @@ function Header({ storeName, logoUrl }: Props) {
 
       setUser(null)
       router.push('/')
+      setUserBlockOpen(false)
     } finally {
       setLoading(false)
     }
