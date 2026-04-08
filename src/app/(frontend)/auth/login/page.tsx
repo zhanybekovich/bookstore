@@ -4,8 +4,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import React from 'react'
+import { useAuth } from '@/providers/AuthProvider'
 
 export default function LoginPage() {
+  const { setUser } = useAuth()
   const router = useRouter()
 
   const [email, setEmail] = useState('')
@@ -19,38 +21,36 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true)
     setErrors({})
+    setLoading(true)
 
     try {
       const res = await fetch('/api/users/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({ email, password }),
       })
 
-      const data = await res.json()
-
-      if (res.ok) {
-        window.location.href = '/'
-      } else {
-        if (data?.errors?.length) {
-          setErrors({
-            general: data.errors[0].message,
-          })
-        } else {
-          setErrors({
-            general: 'Something went wrong',
-          })
-        }
+      if (!res.ok) {
+        const data = await res.json()
+        setErrors({
+          general: data?.errors?.[0]?.message || 'Invalid credentials',
+        })
+        return
       }
-    } catch (error) {
-      setErrors({
-        general: 'Network error. Try again later.',
+
+      // ⬇️ получаем актуального пользователя
+      const meRes = await fetch('/api/users/me', {
+        credentials: 'include',
       })
+      const meData = await meRes.json()
+
+      setUser(meData.user)
+
+      router.push('/')
+    } catch {
+      setErrors({ general: 'Network error' })
     }
 
     setLoading(false)

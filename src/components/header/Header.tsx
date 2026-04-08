@@ -7,30 +7,35 @@ import { LuUser } from 'react-icons/lu'
 import { IoIosClose } from 'react-icons/io'
 import { useState } from 'react'
 import { MdOutlineSearch } from 'react-icons/md'
-import { User } from '@/payload-types'
 import { useRouter } from 'next/navigation'
+import { useAuth } from '@/providers/AuthProvider'
 
 type Props = {
   storeName: string
   logoUrl?: string
-  user: User | null
 }
 
-function Header({ storeName, logoUrl, user }: Props) {
+function Header({ storeName, logoUrl }: Props) {
+  const { user, setUser } = useAuth()
   const [userBlockOpen, setUserBlockOpen] = useState(false)
   const [loading, setLoading] = useState(false)
 
   const router = useRouter()
 
   const handleLogout = async () => {
-    setLoading(true)
+    try {
+      setLoading(true)
 
-    await fetch('/api/users/logout', {
-      method: 'POST',
-      credentials: 'include',
-    })
+      await fetch('/api/users/logout', {
+        method: 'POST',
+        credentials: 'include',
+      })
 
-    window.location.href = '/'
+      setUser(null)
+      router.push('/')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleUserBlockClick = () => {
