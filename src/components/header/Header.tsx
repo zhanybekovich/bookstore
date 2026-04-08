@@ -192,7 +192,11 @@ function Header({ storeName, logoUrl, user }: Props) {
             </>
           ) : (
             <div className="flex gap-4 items-center justify-center py-4">
-              <Link className="bg-indigo-300 px-8 py-2 rounded-full text-white" href="/auth/login">
+              <Link
+                className="bg-indigo-300 px-8 py-2 rounded-full text-white"
+                href="/auth/login"
+                onClick={() => setUserBlockOpen(false)}
+              >
                 Login
               </Link>
               <Link
