@@ -8,6 +8,7 @@ import { IoIosClose } from 'react-icons/io'
 import { useState } from 'react'
 import { MdOutlineSearch } from 'react-icons/md'
 import { User } from '@/payload-types'
+import { useRouter } from 'next/navigation'
 
 type Props = {
   storeName: string
@@ -17,6 +18,20 @@ type Props = {
 
 function Header({ storeName, logoUrl, user }: Props) {
   const [userBlockOpen, setUserBlockOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  const router = useRouter()
+
+  const handleLogout = async () => {
+    setLoading(true)
+
+    await fetch('/api/users/logout', {
+      method: 'POST',
+      credentials: 'include',
+    })
+
+    router.refresh()
+  }
 
   const handleUserBlockClick = () => {
     setUserBlockOpen((prev) => !prev)
@@ -63,8 +78,12 @@ function Header({ storeName, logoUrl, user }: Props) {
                 <span>My Orders</span>
               </Link>
               <hr />
-              <button className="bg-indigo-500 text-white rounded-full inline-block py-2">
-                Logout
+              <button
+                className="bg-indigo-500 text-white rounded-full inline-block py-2"
+                disabled={loading}
+                onClick={handleLogout}
+              >
+                {loading ? 'Logging out...' : 'Logout'}
               </button>
             </>
           ) : (
@@ -163,8 +182,12 @@ function Header({ storeName, logoUrl, user }: Props) {
                 <span>My Orders</span>
               </Link>
               <hr />
-              <button className="bg-indigo-500 text-white rounded-full inline-block py-2">
-                Logout
+              <button
+                className="bg-indigo-500 text-white rounded-full inline-block py-2"
+                disabled={loading}
+                onClick={handleLogout}
+              >
+                {loading ? 'Logging out...' : 'Logout'}
               </button>
             </>
           ) : (
