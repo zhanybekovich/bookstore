@@ -19,6 +19,8 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   const store = await getStoreInfo()
 
+  const logoUrl = store.logo.url
+
   return (
     <html lang="en" className={inter.variable}>
       <body>
