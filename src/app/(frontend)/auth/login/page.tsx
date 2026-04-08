@@ -64,7 +64,7 @@ export default function LoginPage() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-y-4 w-full">
         <input
           className="border p-2 rounded-sm"
-          type="text"
+          type="email"
           placeholder="Your email"
           required
           value={email}
