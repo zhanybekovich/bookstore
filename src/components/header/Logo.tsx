@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 type Props = {
-  src: string
+  src: string | null | undefined
   alt: string
   width: number
   height: number
