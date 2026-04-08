@@ -3,6 +3,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from '@/components/header/Header'
 import { getStoreInfo } from '@/lib/apiServices'
+import { Media } from '@/payload-types'
 
 export const inter = Inter({
   subsets: ['latin', 'cyrillic'],
@@ -19,12 +20,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   const store = await getStoreInfo()
 
-  const logoUrl = store.logo.url
-
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <Header storeName={store.name} logoUrl={logoUrl} />
+        <Header storeName={store.name} logoUrl={store.logoUrl} />
         <main>{children}</main>
       </body>
     </html>

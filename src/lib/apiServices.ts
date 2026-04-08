@@ -11,5 +11,9 @@ export const getStoreInfo = cache(async () => {
     depth: 1,
   })
 
-  return res
+  return {
+    ...res,
+    logoUrl:
+      typeof res.logo === 'object' && res.logo !== null ? (res.logo.url ?? undefined) : undefined,
+  }
 })

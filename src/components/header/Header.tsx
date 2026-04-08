@@ -7,14 +7,22 @@ import { LuUser } from 'react-icons/lu'
 import { IoIosClose } from 'react-icons/io'
 import { useState } from 'react'
 import { MdOutlineSearch } from 'react-icons/md'
+import { log } from 'node:console'
 
-function Header({ storeName, logoUrl }) {
+type Props = {
+  storeName: string
+  logoUrl?: string
+}
+
+function Header({ storeName, logoUrl }: Props) {
   const [user, setUser] = useState(true)
   const [userBlockOpen, setUserBlockOpen] = useState(false)
 
   const handleUserBlockClick = () => {
     setUserBlockOpen((prev) => !prev)
   }
+
+  if (!logoUrl) return null
 
   return (
     <>
