@@ -19,10 +19,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   const store = await getStoreInfo()
 
+  const logoUrl = store.logo && typeof store.logo === 'object' ? store.logo.url : undefined
+
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <Header storeName={store.name} logoUrl={store.logo.url} />
+        <Header storeName={store.name} logoUrl={logoUrl} />
         <main>{children}</main>
       </body>
     </html>

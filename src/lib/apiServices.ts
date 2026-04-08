@@ -8,7 +8,7 @@ const payload = await getPayload({ config })
 export const getStoreInfo = cache(async () => {
   const res = await payload.findGlobal({
     slug: 'store',
-    depth: 2,
+    depth: 1,
   })
 
   return res
