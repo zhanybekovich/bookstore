@@ -100,6 +100,7 @@ function Header({ storeName, logoUrl }: Props) {
               <Link
                 className="bg-indigo-500 px-8 py-2 rounded-full text-white"
                 href="/auth/register"
+                onClick={() => setUserBlockOpen(false)}
               >
                 Register
               </Link>
@@ -208,6 +209,7 @@ function Header({ storeName, logoUrl }: Props) {
               <Link
                 className="bg-indigo-500 px-8 py-2 rounded-full text-white"
                 href="/auth/register"
+                onClick={() => setUserBlockOpen(false)}
               >
                 Register
               </Link>
