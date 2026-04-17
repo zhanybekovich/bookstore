@@ -134,7 +134,7 @@ function Header({ storeName, logoUrl }: Props) {
         </div>
 
         <div className="w-full flex items-center justify-center gap-4">
-          <Link className="bg-indigo-400 px-8 py-2 rounded-full text-white" href="/shop">
+          <Link className="bg-indigo-400 px-8 py-2 rounded-full text-white" href="/products">
             Shop
           </Link>
           <Link className="bg-indigo-400 px-8 py-2 rounded-full text-white" href="/new-arrivals">
@@ -147,7 +147,10 @@ function Header({ storeName, logoUrl }: Props) {
           <Logo src={logoUrl} alt={storeName} width={100} height={100} classes="object-contain" />
         </Link>
         <div className="flex items-center justify-center gap-4">
-          <Link className="text-indigo-500 hover:text-indigo-700 transition-colors" href="/shop">
+          <Link
+            className="text-indigo-500 hover:text-indigo-700 transition-colors"
+            href="/products"
+          >
             Shop
           </Link>
           <Link
