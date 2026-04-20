@@ -18,6 +18,7 @@ import { Delivery } from './globals/Delivery'
 import { Return } from './globals/Return'
 import { TermsOfUse } from './globals/TermsOfUse'
 import { PrivacyPolicy } from './globals/PrivacyPolicy'
+import createPayment from './endpoints/createPayment'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -48,5 +49,12 @@ export default buildConfig({
       },
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
     }),
+  ],
+  endpoints: [
+    {
+      path: '/create-payment',
+      method: 'post',
+      handler: createPayment,
+    },
   ],
 })
