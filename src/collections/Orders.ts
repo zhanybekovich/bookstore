@@ -100,6 +100,10 @@ export const Orders: CollectionConfig = {
       ],
     },
     {
+      name: 'stripeSessionId',
+      type: 'text',
+    },
+    {
       name: 'items',
       type: 'array',
       minRows: 1,
