@@ -68,10 +68,10 @@ export const Products: CollectionConfig = {
       },
     },
     {
-      name: 'publishers',
+      name: 'publisher',
       type: 'relationship',
       relationTo: 'publishers',
-      hasMany: true,
+      hasMany: false,
       admin: {
         position: 'sidebar',
       },

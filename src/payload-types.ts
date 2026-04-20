@@ -237,7 +237,7 @@ export interface Product {
   category?: (number | null) | Category;
   authors?: (number | Author)[] | null;
   publishedYear?: number | null;
-  publishers?: (number | Publisher)[] | null;
+  publisher?: (number | null) | Publisher;
   price: number;
   salePrice?: number | null;
   inStock?: boolean | null;
@@ -446,7 +446,7 @@ export interface ProductsSelect<T extends boolean = true> {
   category?: T;
   authors?: T;
   publishedYear?: T;
-  publishers?: T;
+  publisher?: T;
   price?: T;
   salePrice?: T;
   inStock?: T;
