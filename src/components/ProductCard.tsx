@@ -7,6 +7,7 @@ import { formatPrice } from '@/lib/utils'
 import { useCartStore } from '@/store/useCartStore'
 import { toast } from 'react-hot-toast'
 import { Toaster } from 'react-hot-toast'
+import { AddToCartButton } from './AddToCartBtn'
 
 type Props = {
   product: Product
@@ -36,14 +37,14 @@ export default function ProductCard({ product }: Props) {
     >
       <div className="relative w-full h-40 mb-4">
         {typeof product.mainPhoto !== 'number' && product.mainPhoto?.url && (
-          <Link href={'#'}>
+          <Link href={`/products/${product.id}`}>
             <Image src={product.mainPhoto.url} alt={product.name} fill className="object-contain" />
           </Link>
         )}
       </div>
       <div>
         <h3 className="font-semibold mb-2 line-clamp-2">
-          <Link href={'#'}>{product.name}</Link>
+          <Link href={`/products/${product.id}`}>{product.name}</Link>
         </h3>
         <div className="mb-3">
           {product.authors?.map((author) => {
@@ -75,12 +76,7 @@ export default function ProductCard({ product }: Props) {
           )}
         </div>
 
-        <button
-          onClick={handleAddToCart}
-          className="py-2 px-5 bg-indigo-600 hover:bg-indigo-700 transition rounded-full text-white text-sm cursor-pointer"
-        >
-          Add to Cart
-        </button>
+        <AddToCartButton id={String(product.id)} title={product.name} price={product.price} />
       </div>
       <Toaster position="top-center" reverseOrder={false} />
     </div>
