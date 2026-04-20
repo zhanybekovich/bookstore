@@ -120,7 +120,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
                 {product.inStock ? (
                   <AddToCartButton
-                    id={String(product.id)}
+                    id={product.id}
                     title={product.name}
                     price={product.price}
                   />
