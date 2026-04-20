@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { formatPrice } from '@/lib/utils'
 import { useCartStore } from '@/store/useCartStore'
 import { toast } from 'react-hot-toast'
-import { Toaster } from 'react-hot-toast'
+
 import { AddToCartButton } from './AddToCartBtn'
 
 type Props = {
@@ -78,7 +78,6 @@ export default function ProductCard({ product }: Props) {
 
         <AddToCartButton id={String(product.id)} title={product.name} price={product.price} />
       </div>
-      <Toaster position="top-center" reverseOrder={false} />
     </div>
   )
 }

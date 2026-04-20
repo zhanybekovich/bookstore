@@ -7,6 +7,7 @@ import { getPayloadClient } from '@/lib/payloadClient'
 import { headers } from 'next/headers'
 import { AuthProvider } from '@/providers/AuthProvider'
 import Footer from '@/components/Footer'
+import { Toaster } from 'react-hot-toast'
 
 export const inter = Inter({
   subsets: ['latin', 'cyrillic'],
@@ -40,6 +41,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           <main>{children}</main>
           <Footer storeName={store.name} logoUrl={store.logoUrl} socials={socials} />
         </AuthProvider>
+        <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   )
