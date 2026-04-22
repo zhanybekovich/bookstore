@@ -12,8 +12,8 @@ type Order = {
   status: string
   createdAt: string
   items: {
-    book: {
-      title: string
+    product: {
+      name: string
     }
     quantity: number
     price: number
