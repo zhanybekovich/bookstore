@@ -20,7 +20,7 @@ export default function CartPage() {
       <section className="py-20 text-center min-h-120">
         <h1 className="text-3xl font-bold mb-4 text-indigo-600">Your cart is empty</h1>
         <Link
-          href="/shop"
+          href="/products"
           className="inline-block mt-4 px-6 py-3 bg-indigo-600 text-white rounded-full"
         >
           Go shopping
