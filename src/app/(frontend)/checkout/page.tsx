@@ -29,13 +29,13 @@ export default function CheckoutPage() {
 
       //  Проверка корзины
       if (!items || items.length === 0) {
-        alert('Корзина пуста')
+        alert('Your cart is empty')
         return
       }
 
       //  Проверка формы
       if (!address || !phone) {
-        alert('Заполни адрес и телефон')
+        alert('Please fill in your address and phone number')
         return
       }
 
@@ -49,7 +49,6 @@ export default function CheckoutPage() {
           items,
           shippingAddress: address,
           phone,
-          userId: user.id, // гарантированно есть
         }),
       })
 
@@ -57,8 +56,8 @@ export default function CheckoutPage() {
 
       //  Ошибка от сервера
       if (!res.ok) {
-        console.error('Ошибка оплаты:', data.error)
-        alert(data.error || 'Ошибка оплаты')
+        console.error('Payment error:', data.error)
+        alert(data.error || 'Payment failed')
         return
       }
 
@@ -98,7 +97,6 @@ export default function CheckoutPage() {
         ))}
       </div>
 
-      {/* RIGHT — FORM + SUMMARY */}
       <div className="w-full lg:w-1/3 border p-6 rounded bg-gray-50">
         <h2 className="text-xl font-bold mb-4">Checkout</h2>
 
@@ -118,7 +116,6 @@ export default function CheckoutPage() {
           className="border p-2 mb-4 w-full"
         />
 
-        {/* SUMMARY */}
         <div className="flex justify-between mb-4">
           <span>Total</span>
           <span className="font-bold">${formatPrice(total)}</span>
