@@ -24,22 +24,22 @@ export default function Footer({ storeName, logoUrl, socials }: Props) {
         <Link href="/">
           <Logo src={logoUrl} alt={storeName} width={100} height={100} classes="object-contain" />
         </Link>
-        <div className="flex flex-col md:flex-row md:gap-x-4 md:items-center">
+        <div className="flex flex-col gap-y-4 md:flex-row md:gap-x-4 md:items-center">
           <Link className="hover:-translate-y-1 transition duration-300" href="/about">
             About Us
           </Link>{' '}
-          <GoDotFill className="w-2 h-2" />
+          <GoDotFill className="w-2 h-2 hidden md:block" />
           <Link className="hover:-translate-y-1 transition duration-300" href="/delivery-policy">
             Delivery Policy
           </Link>{' '}
           <Link className="hover:-translate-y-1 transition duration-300" href="/return-policy">
             Return Policy
           </Link>{' '}
-          <GoDotFill className="w-2 h-2" />
+          <GoDotFill className="w-2 h-2 hidden md:block" />
           <Link className="hover:-translate-y-1 transition duration-300" href="/privacy-policy">
             Privacy Policy
           </Link>{' '}
-          <GoDotFill className="w-2 h-2" />
+          <GoDotFill className="w-2 h-2 hidden md:block" />
           <Link className="hover:-translate-y-1 transition duration-300" href="/">
             Terms of Use
           </Link>
