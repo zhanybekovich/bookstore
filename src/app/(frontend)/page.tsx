@@ -31,7 +31,7 @@ export default async function HomePage() {
           <h2 className="font-bold text-2xl md:text-4xl text-indigo-600 mb-4 md:mb-8">
             We Recommend
           </h2>
-          <Link href="/shop" className="text-indigo-600 flex items-center gap-2">
+          <Link href="/products" className="text-indigo-600 flex items-center gap-2">
             View All
             <FaArrowRightLong />
           </Link>
