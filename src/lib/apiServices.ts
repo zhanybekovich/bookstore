@@ -70,3 +70,12 @@ export const getBooksByCategory = async (categoryId: string, { page = 1, limit =
     total: res.totalDocs,
   }
 }
+
+export const getAboutUsPage = async () => {
+  const res = await payload.findGlobal({
+    slug: 'about',
+    depth: 2,
+  })
+
+  return res
+}
