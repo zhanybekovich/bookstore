@@ -45,7 +45,7 @@ export default async function ContactsPage() {
           </div>
 
           <div>
-            <p className="text-xl font-semibold mb-4">Мы в соцсетях</p>
+            <p className="text-xl font-semibold mb-4">Follow Us on Social Media</p>
 
             <div className="flex gap-4">
               {socials?.facebook && (
