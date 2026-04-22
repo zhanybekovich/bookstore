@@ -17,7 +17,7 @@ export default function CategoryCard({ category }: Props) {
       <div className="flex flex-col gap-4 items-center">
         <div className="w-20 h-20 object-contain relative">
           {typeof category.image !== 'number' && category.image?.url && (
-            <Link href={'#'}>
+            <Link href={`/categories/${category.id}`}>
               <Image
                 src={category.image.url}
                 alt={category.name ?? 'Category image'}
@@ -28,7 +28,7 @@ export default function CategoryCard({ category }: Props) {
           )}
         </div>
         <h3 className="font-semibold text-indigo-600 text-center text-xl">
-          <Link href={'#'}>{category.name}</Link>
+          <Link href={`/categories/${category.id}`}>{category.name}</Link>
         </h3>
       </div>
     </div>
