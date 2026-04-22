@@ -25,7 +25,7 @@ export default function Footer({ storeName, logoUrl, socials }: Props) {
           <Logo src={logoUrl} alt={storeName} width={100} height={100} classes="object-contain" />
         </Link>
         <div className="flex flex-col md:flex-row md:gap-x-4 md:items-center">
-          <Link className="hover:-translate-y-1 transition duration-300" href="/">
+          <Link className="hover:-translate-y-1 transition duration-300" href="/about">
             About Us
           </Link>{' '}
           <GoDotFill className="w-2 h-2" />
