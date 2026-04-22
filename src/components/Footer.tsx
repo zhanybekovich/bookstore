@@ -32,7 +32,7 @@ export default function Footer({ storeName, logoUrl, socials }: Props) {
           <Link className="hover:-translate-y-1 transition duration-300" href="/delivery-policy">
             Delivery Policy
           </Link>{' '}
-          <Link className="hover:-translate-y-1 transition duration-300" href="/">
+          <Link className="hover:-translate-y-1 transition duration-300" href="/return-policy">
             Return Policy
           </Link>{' '}
           <GoDotFill className="w-2 h-2" />
